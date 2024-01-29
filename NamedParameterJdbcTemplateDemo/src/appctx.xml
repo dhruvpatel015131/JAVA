@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/OrderDB" />
+        <property name="username" value="root" />
+    </bean>
+	  
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">  
+		<constructor-arg ref="ds"></constructor-arg>  
+	</bean>  
+	  
+	<bean id="orderDAOBean1" class="in.ac.famt.OrderDAO">  
+		<property name="template" ref="jdbcTemplate"></property>  
+	</bean>
+	
+	<bean id="orderBean1" class="in.ac.famt.OrderMst">  
+		<property name="orderId" value="5"></property>
+		<property name="supplierNm" value="ajay services"></property>
+		<property name="orderAmt" value="78932.23"></property>  
+	</bean>
+	
+	<!-- 
+	<bean id="selectOrder" class="in.ac.famt.OrderMst">  
+		<property name="orderId" value="10"></property>  
+	</bean>
+	 -->
+</beans>
