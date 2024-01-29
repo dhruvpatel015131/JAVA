@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- bean definitions here -->
+	
+	<!-- setter injection -->
+	<!-- dependency-check="none/simple/object/all" is used to force user to pass/inject all arguments-->
+	
+	<bean id="ansBean1" class="secondaryClassCollectionInjection.Answer" dependency-check="simple">
+		<property name="id" value="101"></property> 
+		<property name="nm" value="Mayuresh"></property>
+		<property name="by" value="Java is Programming Language."></property>
+	</bean>
+	<bean id="ansBean2" class="secondaryClassCollectionInjection.Answer">
+		<property name="id" value="103"></property> 
+		<property name="nm" value="Magesh"></property>
+		<property name="by" value="Java is scripting Language."></property>
+	</bean>
+	<bean id="ansBean3" class="secondaryClassCollectionInjection.Answer">
+		<property name="id" value="103"></property> 
+		<property name="nm" value="Chaya"></property>
+		<property name="by" value="Java is Platform."></property>
+	</bean>
+	
+	<bean id="queBean1" class="secondaryClassCollectionInjection.Question">
+		<property name="id" value="1001"></property>
+		<property name="nm" value="What is Java?"></property>
+		<property name="ans"> 
+			<list>
+				<ref bean="ansBean1" /> 
+				<ref bean="ansBean2" />
+				<ref bean="ansBean3" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- constructor injection -->
+	<bean id="ansBean4" class="secondaryClassCollectionInjection.Answer">
+		<constructor-arg index="0" value="1000"></constructor-arg>
+		<constructor-arg type="String" value="Mahesh"></constructor-arg>
+		<constructor-arg index="2" value="Java is Platform."></constructor-arg>
+	</bean>
+	
+	<bean id="ansBean5" class="secondaryClassCollectionInjection.Answer">
+		<constructor-arg value="1001"></constructor-arg>
+		<constructor-arg value="Anuj"></constructor-arg>
+		<constructor-arg value="Java is scripting Language."></constructor-arg>
+	</bean>
+	
+	<bean id="queBean2" class="secondaryClassCollectionInjection.Question">
+		<constructor-arg index="0" value="80001"></constructor-arg>
+		<constructor-arg type="String" value="Anuj"></constructor-arg>
+		<constructor-arg> 
+			<list>
+				<ref bean="ansBean4" /> 
+				<ref bean="ansBean5" />
+			</list> 
+		</constructor-arg>
+	</bean>
+</beans>

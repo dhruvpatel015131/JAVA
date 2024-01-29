@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="circleBean1" class="inheritanceInjection.Circle"></bean>
+	
+	<bean id="shapeBean1" class="inheritanceInjection.ShapeManager">
+		<property name="myShape" ref="circleBean1"></property>
+	</bean>
+</beans>

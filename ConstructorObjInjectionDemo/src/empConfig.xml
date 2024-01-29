@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	<bean id="addrBean" class="constObjDemo.Address">
+		<property name="buildingNo" value="101"></property>
+		<property name="street" value="Veer Savarkar Road"></property>
+		<property name="dist" value="Nashik"></property>
+		<property name="pin" value="400410"></property>
+ 	</bean>
+	<!-- setter injection with object reference -->
+	<bean id="empBean" class="constObjDemo.Employee">
+		<property name="empId" value="101"></property>
+		<property name="empNm" value="Abhay"></property>
+		<property name="addr" ref="addrBean"></property>
+	</bean>
+		
+	<!-- constructor injection -->
+	<bean id="addrBean1" class="constObjDemo.Address">
+		<constructor-arg index="0" value="1000"></constructor-arg>
+		<constructor-arg type="String" value="Prabhat Road"></constructor-arg>
+		<constructor-arg index="2" value="Pune"></constructor-arg>
+		<constructor-arg index="3" value="410002"></constructor-arg>
+	</bean>
+	<!-- constructor injection with object reference -->
+	<bean id="empBean1" class="constObjDemo.Employee">
+		<constructor-arg index="0" value="1001"></constructor-arg>
+		<constructor-arg type="String" value="Anuj"></constructor-arg>
+		<constructor-arg> 
+			<ref bean="addrBean1"/> 
+		</constructor-arg>
+	</bean>
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="stud" class="myPack.Student">
+		<property name="rollNo" value="1"></property>
+		<property name="nm" value="Tejas Joshi"></property>
+		<property name="add" value="Ratnagiri"></property>
+	</bean>
+	
+	<bean id="stud1" class="myPack.Student">
+		<property name="rollNo" value="2"></property>
+		<property name="nm" value="Kishor Bhosale"></property>
+		<property name="add" value="Ratnagiri"></property>
+	</bean>
+
+</beans>

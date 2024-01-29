@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="person" class="in.ac.famt.Person">
+        <property name="name" value="Tejas" />
+        <property name="address" value="Ratnagiri" />
+        <property name="age" value="40" />
+    </bean>
+    
+    <bean id="addr" class="in.ac.famt.Address">
+        <property name="buildingNo" value="10" />
+        <property name="dist" value="Ratnagiri" />
+        <property name="street" value="AV" />
+        <property name="pin" value="415619" />
+    </bean>
+    
+    <bean id="CustomerBean1" class="in.ac.famt.Customer" >
+        <property name="action" value="buy" />
+    </bean>
+	
+	<bean id="CustomerBean2" class="in.ac.famt.Customer" autowire="byName">
+        <property name="action" value="buy" />
+        <property name="type" value="10" />
+        
+    </bean>
+    
+    <bean id="CustomerBean3" class="in.ac.famt.Customer" autowire="byType">
+        <property name="action" value="buy" />
+        <property name="type" value="10" />
+    </bean>
+</beans>
