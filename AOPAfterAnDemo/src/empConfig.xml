@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:aop="http://www.springframework.org/schema/aop"   
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans.xsd   
+       http://www.springframework.org/schema/aop   
+       http://www.springframework.org/schema/aop/spring-aop.xsd">  
+  <!-- -->
+  	<aop:aspectj-autoproxy proxy-target-class="true" />
+  	   
+  	<bean id="employee" class="myPack.Employee">   
+  		<constructor-arg name="name" value="Ajay"></constructor-arg>
+  		<constructor-arg name="designation" value="Manager"></constructor-arg>
+  		<constructor-arg name="dept" value="Sales"></constructor-arg>
+  	</bean>
+    <bean id="employeeOperations" class="myPack.EmployeeOperations">   </bean>  
+    
+    <bean id="aopEmpConfig" class="myPack.AOPEmpConfig"></bean>  
+    <!--  --> 
+</beans>
