@@ -1,0 +1,23 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+		<bean id="addrBean1" class="myPack.Address">
+			<constructor-arg index="0" value="1000"></constructor-arg>
+			<constructor-arg type="String" value="Prabhat Road"></constructor-arg>
+			<constructor-arg index="2" value="Pune"></constructor-arg>
+			<constructor-arg index="3" value="410002"></constructor-arg>
+		</bean>
+		
+		<bean id="empBean1" class="myPack.Employee">
+			<constructor-arg index="0" value="101"></constructor-arg>
+			<constructor-arg type="String" value="Anuj"></constructor-arg>
+			<constructor-arg >
+				<ref bean= "addrBean1"/>
+			</constructor-arg>
+		</bean>
+		
+</beans>
